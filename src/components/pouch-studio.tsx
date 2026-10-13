@@ -61,7 +61,7 @@ function PouchMesh({
 
 export default function PouchStudio() {
   const [type, setType] = useState<PouchType>("doypack");
-  const [color, setColor] = useState(POUCH_COLORS[0].value);
+  const [color, setColor] = useState(POUCH_COLORS[0]?.value ?? "#f4f1ea");
   const [finish, setFinish] = useState<Finish>("matte");
   const [logo, setLogo] = useState<HTMLImageElement | null>(null);
   const [logoName, setLogoName] = useState<string | null>(null);

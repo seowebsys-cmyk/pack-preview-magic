@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import type { TablesInsert } from "@/integrations/supabase/types";
 
 type FormKind = "sample" | "contact";
 
@@ -17,7 +18,7 @@ export function ContactForm({ kind }: { kind: FormKind }) {
     const data = new FormData(form);
     setStatus("sending");
 
-    const payload =
+    const payload: TablesInsert<"contact_requests"> =
       kind === "sample"
         ? {
             form: "sample",
