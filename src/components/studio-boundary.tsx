@@ -9,17 +9,17 @@ export class StudioBoundary extends Component<
   { children: ReactNode },
   { failed: boolean }
 > {
-  state = { failed: false };
+  override state = { failed: false };
 
   static getDerivedStateFromError() {
     return { failed: true };
   }
 
-  componentDidCatch(error: unknown) {
+  override componentDidCatch(error: unknown) {
     console.error("3D studio failed to load", error);
   }
 
-  render() {
+  override render() {
     if (this.state.failed) {
       return (
         <div className="flex h-[560px] flex-col items-center justify-center gap-3 rounded-3xl border border-border bg-card text-center">
