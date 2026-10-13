@@ -5,6 +5,7 @@ import doypackFront from "@/assets/doypack-front.webp.asset.json";
 import gussetFront from "@/assets/gusset-front.webp.asset.json";
 import flatbottomFront from "@/assets/flatbottom-front.webp.asset.json";
 import { ContactForm } from "@/components/contact-form";
+import { StudioBoundary } from "@/components/studio-boundary";
 
 const PouchStudio = lazy(() => import("@/components/pouch-studio"));
 
@@ -232,15 +233,17 @@ function Index() {
           </p>
           <div className="mt-12">
             {mounted ? (
-              <Suspense
-                fallback={
-                  <div className="flex h-[560px] items-center justify-center rounded-3xl border border-border bg-card text-sm text-muted-foreground">
-                    Loading 3D studio…
-                  </div>
-                }
-              >
-                <PouchStudio />
-              </Suspense>
+              <StudioBoundary>
+                <Suspense
+                  fallback={
+                    <div className="flex h-[560px] items-center justify-center rounded-3xl border border-border bg-card text-sm text-muted-foreground">
+                      Loading 3D studio…
+                    </div>
+                  }
+                >
+                  <PouchStudio />
+                </Suspense>
+              </StudioBoundary>
             ) : (
               <div className="flex h-[560px] items-center justify-center rounded-3xl border border-border bg-card text-sm text-muted-foreground">
                 Loading 3D studio…
