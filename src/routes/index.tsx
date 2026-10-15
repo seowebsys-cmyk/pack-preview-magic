@@ -293,6 +293,46 @@ function Index() {
         </div>
       </section>
 
+      {/* Steps */}
+      <section className="py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <p className="text-xs font-bold tracking-[0.25em] text-muted-foreground uppercase">
+            Simple steps
+          </p>
+          <h2 className="font-display mt-3 text-4xl text-balance sm:text-5xl">
+            We are the changemakers
+          </h2>
+          <p className="mt-4 max-w-xl text-muted-foreground">
+            From packaging selection to sealing freshness, we've made the
+            process effortless — because great coffee deserves great packaging.
+          </p>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {STEPS.map((s) => (
+              <div
+                key={s.n}
+                className="rounded-3xl border border-border bg-card p-8"
+              >
+                <span className="font-display text-5xl text-coffee">{s.n}</span>
+                <h3 className="mt-4 text-lg font-bold">{s.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{s.copy}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 flex flex-wrap gap-2">
+            {["Simple", "Fast", "Customize", "Best value", "Recycle"].map(
+              (chip) => (
+                <span
+                  key={chip}
+                  className="rounded-full border border-border bg-card px-4 py-1.5 text-xs font-bold tracking-wide uppercase"
+                >
+                  {chip}
+                </span>
+              ),
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Showcase / recent work */}
       <section id="work" className="scroll-mt-24 py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
