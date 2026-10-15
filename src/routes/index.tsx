@@ -371,6 +371,68 @@ function Index() {
         </div>
       </section>
 
+      {/* Latest from the blog */}
+      <section className="border-t border-border bg-secondary/50 py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="text-xs font-bold tracking-[0.25em] text-muted-foreground uppercase">
+                From the blog
+              </p>
+              <h2 className="font-display mt-3 max-w-xl text-4xl text-balance sm:text-5xl">
+                Packaging know-how, fresh brewed
+              </h2>
+            </div>
+            <Link
+              to="/blog"
+              className="inline-flex items-center justify-center rounded-full border border-foreground/25 px-6 py-3 text-xs font-bold tracking-wide uppercase transition-colors hover:bg-secondary"
+            >
+              View all articles
+            </Link>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {BLOG_POSTS.slice(0, 3).map((post) => (
+              <article
+                key={post.slug}
+                className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card transition-shadow hover:shadow-xl"
+              >
+                <Link
+                  to="/blog/$slug"
+                  params={{ slug: post.slug }}
+                  className="block overflow-hidden"
+                >
+                  <img
+                    src={post.cover}
+                    alt={post.coverAlt}
+                    width={1280}
+                    height={720}
+                    loading="lazy"
+                    className="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </Link>
+                <div className="flex flex-1 flex-col p-6">
+                  <p className="text-xs font-bold tracking-[0.2em] text-coffee uppercase">
+                    {formatPostDate(post.date)} · {post.readingTime}
+                  </p>
+                  <h3 className="font-display mt-2 text-xl">
+                    <Link
+                      to="/blog/$slug"
+                      params={{ slug: post.slug }}
+                      className="transition-colors hover:text-coffee"
+                    >
+                      {post.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {post.excerpt}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Free sample / lead form */}
       <section id="sample" className="scroll-mt-24 border-t border-border bg-card py-20">
         <div className="mx-auto grid max-w-6xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-2">
