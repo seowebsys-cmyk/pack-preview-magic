@@ -6,6 +6,13 @@ import gussetFront from "@/assets/gusset-front.webp.asset.json";
 import flatbottomFront from "@/assets/flatbottom-front.webp.asset.json";
 import { ContactForm } from "@/components/contact-form";
 import { StudioBoundary } from "@/components/studio-boundary";
+import { BLOG_POSTS, formatPostDate } from "@/lib/blog";
+import showcase1 from "@/assets/showcase-1.jpg";
+import showcase2 from "@/assets/showcase-2.jpg";
+import showcase3 from "@/assets/showcase-3.jpg";
+import showcase4 from "@/assets/showcase-4.jpg";
+import showcase5 from "@/assets/showcase-5.jpg";
+import showcase6 from "@/assets/showcase-6.jpg";
 
 const PouchStudio = lazy(() => import("@/components/pouch-studio"));
 
@@ -70,6 +77,39 @@ const PRODUCTS = [
     tag: "Efficient & flexible",
     copy: "Side-fold gussets give you generous capacity at great value — ideal for larger volumes and wholesale beans.",
     features: ["Up to 5 kg sizes", "Degassing valve", "Heat-sealable"],
+  },
+];
+
+const SHOWCASE = [
+  {
+    image: showcase1,
+    alt: "Matte black custom doypack coffee pouch with minimal line-art logo",
+    label: "Matte black doypack",
+  },
+  {
+    image: showcase2,
+    alt: "Kraft paper flat bottom coffee pouch with green printed logo",
+    label: "Kraft flat bottom",
+  },
+  {
+    image: showcase3,
+    alt: "White gusset coffee pouch with colorful modern label design",
+    label: "Full-print gusset",
+  },
+  {
+    image: showcase4,
+    alt: "Lineup of colorful custom printed coffee pouches on a roastery shelf",
+    label: "Seasonal blend series",
+  },
+  {
+    image: showcase5,
+    alt: "Macro detail of degassing valve and zipper on a coffee pouch",
+    label: "Valve & zipper detail",
+  },
+  {
+    image: showcase6,
+    alt: "Custom coffee pouches among roasted beans in an artisan roastery",
+    label: "Roastery launch set",
   },
 ];
 
@@ -253,6 +293,44 @@ function Index() {
         </div>
       </section>
 
+      {/* Showcase / recent work */}
+      <section id="work" className="scroll-mt-24 py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <p className="text-xs font-bold tracking-[0.25em] text-muted-foreground uppercase">
+            Fresh off the press
+          </p>
+          <h2 className="font-display mt-3 max-w-2xl text-4xl text-balance sm:text-5xl">
+            Pouches we've printed for roasters like you
+          </h2>
+          <p className="mt-4 max-w-xl text-muted-foreground">
+            A look at recent runs — custom colors, full-print artwork, kraft
+            finishes, and every format we produce.
+          </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {SHOWCASE.map((item) => (
+              <figure
+                key={item.label}
+                className="group overflow-hidden rounded-3xl border border-border bg-card"
+              >
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    width={1024}
+                    height={1024}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="px-5 py-4 text-sm font-bold">
+                  {item.label}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Steps */}
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -289,6 +367,68 @@ function Index() {
                 </span>
               ),
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* Latest from the blog */}
+      <section className="border-t border-border bg-secondary/50 py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="text-xs font-bold tracking-[0.25em] text-muted-foreground uppercase">
+                From the blog
+              </p>
+              <h2 className="font-display mt-3 max-w-xl text-4xl text-balance sm:text-5xl">
+                Packaging know-how, fresh brewed
+              </h2>
+            </div>
+            <Link
+              to="/blog"
+              className="inline-flex items-center justify-center rounded-full border border-foreground/25 px-6 py-3 text-xs font-bold tracking-wide uppercase transition-colors hover:bg-secondary"
+            >
+              View all articles
+            </Link>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {BLOG_POSTS.slice(0, 3).map((post) => (
+              <article
+                key={post.slug}
+                className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card transition-shadow hover:shadow-xl"
+              >
+                <Link
+                  to="/blog/$slug"
+                  params={{ slug: post.slug }}
+                  className="block overflow-hidden"
+                >
+                  <img
+                    src={post.cover}
+                    alt={post.coverAlt}
+                    width={1280}
+                    height={720}
+                    loading="lazy"
+                    className="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </Link>
+                <div className="flex flex-1 flex-col p-6">
+                  <p className="text-xs font-bold tracking-[0.2em] text-coffee uppercase">
+                    {formatPostDate(post.date)} · {post.readingTime}
+                  </p>
+                  <h3 className="font-display mt-2 text-xl">
+                    <Link
+                      to="/blog/$slug"
+                      params={{ slug: post.slug }}
+                      className="transition-colors hover:text-coffee"
+                    >
+                      {post.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {post.excerpt}
+                  </p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

@@ -42,8 +42,8 @@ function PouchMesh({
   useEffect(() => () => geometry.dispose(), [geometry]);
 
   const texture = useMemo(
-    () => buildPouchTexture({ baseColor: color, logo }),
-    [color, logo],
+    () => buildPouchTexture({ baseColor: color, logo, type }),
+    [color, logo, type],
   );
   useEffect(() => () => texture.dispose(), [texture]);
 

@@ -15,6 +15,12 @@ export function SiteNav() {
           <Link to="/" hash="studio" className="text-foreground/80 transition-colors hover:text-foreground">
             3D Studio
           </Link>
+          <Link to="/" hash="work" className="text-foreground/80 transition-colors hover:text-foreground">
+            Our work
+          </Link>
+          <Link to="/blog" className="text-foreground/80 transition-colors hover:text-foreground">
+            Blog
+          </Link>
           <Link to="/about" className="text-foreground/80 transition-colors hover:text-foreground">
             About
           </Link>
