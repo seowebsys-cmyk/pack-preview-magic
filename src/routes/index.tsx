@@ -6,6 +6,13 @@ import gussetFront from "@/assets/gusset-front.webp.asset.json";
 import flatbottomFront from "@/assets/flatbottom-front.webp.asset.json";
 import { ContactForm } from "@/components/contact-form";
 import { StudioBoundary } from "@/components/studio-boundary";
+import { BLOG_POSTS, formatPostDate } from "@/lib/blog";
+import showcase1 from "@/assets/showcase-1.jpg";
+import showcase2 from "@/assets/showcase-2.jpg";
+import showcase3 from "@/assets/showcase-3.jpg";
+import showcase4 from "@/assets/showcase-4.jpg";
+import showcase5 from "@/assets/showcase-5.jpg";
+import showcase6 from "@/assets/showcase-6.jpg";
 
 const PouchStudio = lazy(() => import("@/components/pouch-studio"));
 
@@ -70,6 +77,39 @@ const PRODUCTS = [
     tag: "Efficient & flexible",
     copy: "Side-fold gussets give you generous capacity at great value — ideal for larger volumes and wholesale beans.",
     features: ["Up to 5 kg sizes", "Degassing valve", "Heat-sealable"],
+  },
+];
+
+const SHOWCASE = [
+  {
+    image: showcase1,
+    alt: "Matte black custom doypack coffee pouch with minimal line-art logo",
+    label: "Matte black doypack",
+  },
+  {
+    image: showcase2,
+    alt: "Kraft paper flat bottom coffee pouch with green printed logo",
+    label: "Kraft flat bottom",
+  },
+  {
+    image: showcase3,
+    alt: "White gusset coffee pouch with colorful modern label design",
+    label: "Full-print gusset",
+  },
+  {
+    image: showcase4,
+    alt: "Lineup of colorful custom printed coffee pouches on a roastery shelf",
+    label: "Seasonal blend series",
+  },
+  {
+    image: showcase5,
+    alt: "Macro detail of degassing valve and zipper on a coffee pouch",
+    label: "Valve & zipper detail",
+  },
+  {
+    image: showcase6,
+    alt: "Custom coffee pouches among roasted beans in an artisan roastery",
+    label: "Roastery launch set",
   },
 ];
 
