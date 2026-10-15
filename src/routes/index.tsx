@@ -293,6 +293,44 @@ function Index() {
         </div>
       </section>
 
+      {/* Showcase / recent work */}
+      <section id="work" className="scroll-mt-24 py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <p className="text-xs font-bold tracking-[0.25em] text-muted-foreground uppercase">
+            Fresh off the press
+          </p>
+          <h2 className="font-display mt-3 max-w-2xl text-4xl text-balance sm:text-5xl">
+            Pouches we've printed for roasters like you
+          </h2>
+          <p className="mt-4 max-w-xl text-muted-foreground">
+            A look at recent runs — custom colors, full-print artwork, kraft
+            finishes, and every format we produce.
+          </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {SHOWCASE.map((item) => (
+              <figure
+                key={item.label}
+                className="group overflow-hidden rounded-3xl border border-border bg-card"
+              >
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    width={1024}
+                    height={1024}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="px-5 py-4 text-sm font-bold">
+                  {item.label}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Steps */}
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
