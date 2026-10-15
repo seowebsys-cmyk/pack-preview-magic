@@ -155,7 +155,7 @@ export function ContactForm({ kind }: { kind: FormKind }) {
         {status === "sending"
           ? "Sending…"
           : kind === "sample"
-            ? "Request free sample"
+            ? "Get a Sample"
             : "Submit"}
       </button>
     </form>

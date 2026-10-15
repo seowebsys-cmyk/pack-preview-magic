@@ -157,7 +157,7 @@ function Index() {
                 href="#sample"
                 className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-primary-foreground uppercase transition-opacity hover:opacity-90"
               >
-                Order free sample
+                Get a Sample
               </a>
               <a
                 href="#studio"

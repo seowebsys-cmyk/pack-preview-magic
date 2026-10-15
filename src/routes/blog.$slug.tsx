@@ -74,7 +74,7 @@ function BlogPostPage() {
               hash="sample"
               className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
             >
-              Order free sample
+              Get a Sample
             </Link>
             <Link
               to="/"
