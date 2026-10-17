@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import aboutCoffee from "@/assets/about-coffee.jpg.asset.json";
 import aboutShop from "@/assets/about-shop.jpg.asset.json";
 import aboutBreak from "@/assets/about-break.jpg.asset.json";
+import { assetUrl } from "@/lib/asset-url";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -87,17 +88,17 @@ function About() {
           </p>
           <div className="mt-12 grid gap-4 sm:grid-cols-3">
             <img
-              src={aboutCoffee.url}
+              src={assetUrl(aboutCoffee)}
               alt="Freshly roasted coffee beans"
               className="h-56 w-full rounded-3xl object-cover"
             />
             <img
-              src={aboutShop.url}
+              src={assetUrl(aboutShop)}
               alt="Specialty coffee shop"
               className="h-56 w-full rounded-3xl object-cover"
             />
             <img
-              src={aboutBreak.url}
+              src={assetUrl(aboutBreak)}
               alt="Coffee break at the roastery"
               className="h-56 w-full rounded-3xl object-cover"
             />

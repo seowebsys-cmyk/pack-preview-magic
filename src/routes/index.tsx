@@ -7,6 +7,7 @@ import flatbottomFront from "@/assets/flatbottom-front.webp.asset.json";
 import { ContactForm } from "@/components/contact-form";
 import { StudioBoundary } from "@/components/studio-boundary";
 import { BLOG_POSTS, formatPostDate } from "@/lib/blog";
+import { assetUrl } from "@/lib/asset-url";
 import showcase1 from "@/assets/roasterpack-gallery-64.jpg.asset.json";
 import showcase2 from "@/assets/roasterpack-gallery-61.jpg.asset.json";
 import showcase3 from "@/assets/roasterpack-gallery-65.jpg.asset.json";
@@ -33,6 +34,8 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: assetUrl(heroPouch) },
+      { name: "twitter:image", content: assetUrl(heroPouch) },
     ],
   }),
   component: Index,
@@ -56,7 +59,7 @@ const TRUSTED_BY = [
 const PRODUCTS = [
   {
     name: "Doypack",
-    image: doypackFront.url,
+    image: assetUrl(doypackFront),
     alt: "Custom printed doypack stand-up coffee pouch",
     tag: "The classic stand-up",
     copy: "The go-to stand-up pouch for specialty coffee. Great shelf presence, lightweight, and loved by roasters worldwide.",
@@ -64,7 +67,7 @@ const PRODUCTS = [
   },
   {
     name: "Flat Bottom Pouch",
-    image: flatbottomFront.url,
+    image: assetUrl(flatbottomFront),
     alt: "Custom printed flat bottom coffee pouch",
     tag: "Premium shelf-ready",
     copy: "A boxy, stable pouch that stands tall and looks premium. Maximum print area for bold brand statements.",
@@ -72,7 +75,7 @@ const PRODUCTS = [
   },
   {
     name: "Gusset Pouch",
-    image: gussetFront.url,
+    image: assetUrl(gussetFront),
     alt: "Custom printed side gusset coffee pouch",
     tag: "Efficient & flexible",
     copy: "Side-fold gussets give you generous capacity at great value — ideal for larger volumes and wholesale beans.",
@@ -82,32 +85,32 @@ const PRODUCTS = [
 
 const SHOWCASE = [
   {
-    image: showcase1.url,
+    image: assetUrl(showcase1),
     alt: "Five colorful Chamberlain Coffee pouches with custom printed artwork",
     label: "Chamberlain Coffee — blend collection",
   },
   {
-    image: showcase2.url,
+    image: assetUrl(showcase2),
     alt: "Front and back of orange MOTO Coffee custom printed pouches",
     label: "MOTO Coffee — front & back",
   },
   {
-    image: showcase3.url,
+    image: assetUrl(showcase3),
     alt: "White café baskets LOT61 coffee pouches with valve and resealable zipper",
     label: "LOT61 — minimal white print",
   },
   {
-    image: showcase4.url,
+    image: assetUrl(showcase4),
     alt: "Side view of colorful Chamberlain Coffee pouches showing folded gussets",
     label: "Chamberlain Coffee — side details",
   },
   {
-    image: showcase5.url,
+    image: assetUrl(showcase5),
     alt: "Coffeekult Rwanda and Colombia white coffee pouches with colorful origin labels",
     label: "Coffeekult — origin series",
   },
   {
-    image: showcase6.url,
+    image: assetUrl(showcase6),
     alt: "Orange MOTO Coffee pouches viewed from the side to show expanding gussets",
     label: "MOTO Coffee — gusset details",
   },
@@ -170,7 +173,7 @@ function Index() {
           <div className="relative mx-auto w-full max-w-sm">
             <div className="absolute inset-0 -z-10 scale-125 rounded-full bg-secondary" />
             <img
-              src={heroPouch.url}
+              src={assetUrl(heroPouch)}
               alt="RoasterPack custom coffee pouch"
               className="animate-float-slow mx-auto w-full max-w-xs drop-shadow-2xl lg:max-w-sm"
             />
