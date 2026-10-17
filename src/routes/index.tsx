@@ -349,20 +349,18 @@ function Index() {
             A look at recent runs — custom colors, full-print artwork, kraft
             finishes, and every format we produce.
           </p>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 columns-1 gap-6 sm:columns-2 lg:columns-3">
             {SHOWCASE.map((item) => (
               <figure
                 key={item.label}
-                className="group overflow-hidden rounded-lg border border-border bg-card"
+                className="group mb-6 break-inside-avoid overflow-hidden rounded-lg border border-border bg-card"
               >
-                <div className="aspect-[3/4] overflow-hidden">
+                <div className="overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.alt}
-                    width={768}
-                    height={1024}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="block h-auto w-full transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm font-bold">
