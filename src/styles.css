@@ -6,9 +6,8 @@
 
 /*
  * RoasterPack design system.
- * Monochrome, editorial, packaging-lab aesthetic: warm light-gray canvas,
- * near-black ink, white surfaces. Accent is a roasted-coffee brown used
- * sparingly for highlights and small details.
+ * Supplied visual identity: black, white, light gray and medium gray,
+ * with Epilogue typography and the original RoasterPack wordmark.
  */
 
 @theme inline {
@@ -46,33 +45,33 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Epilogue", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.93 0.005 95);
-  --foreground: oklch(0.17 0.012 80);
-  --card: oklch(0.975 0.004 95);
-  --card-foreground: oklch(0.17 0.012 80);
-  --popover: oklch(0.975 0.004 95);
-  --popover-foreground: oklch(0.17 0.012 80);
-  --primary: oklch(0.17 0.012 80);
-  --primary-foreground: oklch(0.96 0.004 95);
-  --secondary: oklch(0.885 0.006 95);
-  --secondary-foreground: oklch(0.17 0.012 80);
-  --muted: oklch(0.885 0.006 95);
-  --muted-foreground: oklch(0.46 0.015 80);
-  --accent: oklch(0.885 0.006 95);
-  --accent-foreground: oklch(0.17 0.012 80);
-  --coffee: oklch(0.52 0.09 55);
-  --coffee-foreground: oklch(0.97 0.004 95);
+  --background: #d9d9d9;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --secondary: #cccccc;
+  --secondary-foreground: #000000;
+  --muted: #cccccc;
+  --muted-foreground: #525252;
+  --accent: #cccccc;
+  --accent-foreground: #000000;
+  --coffee: #525252;
+  --coffee-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.96 0.004 95);
-  --border: oklch(0.845 0.007 90);
-  --input: oklch(0.845 0.007 90);
-  --ring: oklch(0.52 0.09 55);
-  --chart-1: oklch(0.52 0.09 55);
+  --border: #949494;
+  --input: #949494;
+  --ring: #000000;
+  --chart-1: #949494;
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
@@ -101,7 +100,7 @@
   font-family: var(--font-sans);
   font-weight: 900;
   font-style: italic;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 

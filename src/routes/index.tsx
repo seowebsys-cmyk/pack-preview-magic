@@ -7,12 +7,12 @@ import flatbottomFront from "@/assets/flatbottom-front.webp.asset.json";
 import { ContactForm } from "@/components/contact-form";
 import { StudioBoundary } from "@/components/studio-boundary";
 import { BLOG_POSTS, formatPostDate } from "@/lib/blog";
-import showcase1 from "@/assets/showcase-1.jpg";
-import showcase2 from "@/assets/showcase-2.jpg";
-import showcase3 from "@/assets/showcase-3.jpg";
-import showcase4 from "@/assets/showcase-4.jpg";
-import showcase5 from "@/assets/showcase-5.jpg";
-import showcase6 from "@/assets/showcase-6.jpg";
+import showcase1 from "@/assets/roasterpack-gallery-64.jpg.asset.json";
+import showcase2 from "@/assets/roasterpack-gallery-61.jpg.asset.json";
+import showcase3 from "@/assets/roasterpack-gallery-65.jpg.asset.json";
+import showcase4 from "@/assets/roasterpack-gallery-66.jpg.asset.json";
+import showcase5 from "@/assets/roasterpack-gallery-62.jpg.asset.json";
+import showcase6 from "@/assets/roasterpack-gallery-63.jpg.asset.json";
 
 const PouchStudio = lazy(() => import("@/components/pouch-studio"));
 
@@ -82,34 +82,34 @@ const PRODUCTS = [
 
 const SHOWCASE = [
   {
-    image: showcase1,
-    alt: "Matte black custom doypack coffee pouch with minimal line-art logo",
-    label: "Matte black doypack",
+    image: showcase1.url,
+    alt: "Five colorful Chamberlain Coffee pouches with custom printed artwork",
+    label: "Chamberlain Coffee — blend collection",
   },
   {
-    image: showcase2,
-    alt: "Kraft paper flat bottom coffee pouch with green printed logo",
-    label: "Kraft flat bottom",
+    image: showcase2.url,
+    alt: "Front and back of orange MOTO Coffee custom printed pouches",
+    label: "MOTO Coffee — front & back",
   },
   {
-    image: showcase3,
-    alt: "White gusset coffee pouch with colorful modern label design",
-    label: "Full-print gusset",
+    image: showcase3.url,
+    alt: "White café baskets LOT61 coffee pouches with valve and resealable zipper",
+    label: "LOT61 — minimal white print",
   },
   {
-    image: showcase4,
-    alt: "Lineup of colorful custom printed coffee pouches on a roastery shelf",
-    label: "Seasonal blend series",
+    image: showcase4.url,
+    alt: "Side view of colorful Chamberlain Coffee pouches showing folded gussets",
+    label: "Chamberlain Coffee — side details",
   },
   {
-    image: showcase5,
-    alt: "Macro detail of degassing valve and zipper on a coffee pouch",
-    label: "Valve & zipper detail",
+    image: showcase5.url,
+    alt: "Coffeekult Rwanda and Colombia white coffee pouches with colorful origin labels",
+    label: "Coffeekult — origin series",
   },
   {
-    image: showcase6,
-    alt: "Custom coffee pouches among roasted beans in an artisan roastery",
-    label: "Roastery launch set",
+    image: showcase6.url,
+    alt: "Orange MOTO Coffee pouches viewed from the side to show expanding gussets",
+    label: "MOTO Coffee — gusset details",
   },
 ];
 
@@ -350,16 +350,16 @@ function Index() {
             {SHOWCASE.map((item) => (
               <figure
                 key={item.label}
-                className="group overflow-hidden rounded-3xl border border-border bg-card"
+                className="group overflow-hidden rounded-lg border border-border bg-card"
               >
-                <div className="aspect-square overflow-hidden">
+                <div className="aspect-[3/4] overflow-hidden bg-secondary">
                   <img
                     src={item.image}
                     alt={item.alt}
-                    width={1024}
+                    width={768}
                     height={1024}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm font-bold">
