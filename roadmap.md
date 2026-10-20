@@ -1,4 +1,7 @@
 # Tasks
+- [ ] Build six-product shop catalog with one-time and monthly options.
+- [ ] Remove the three old placeholder blogs from lists and the sitemap.
+- [ ] Restore blog pictures and internal links from the supplied HTML after launch; map old product/category links to the new shop, and create missing destinations before linking.
 - [x] Align homepage gallery into equal-sized rows with full-photo viewing.
 - [x] Incorporate the three supplied blog articles with headings and tables.
 - [x] Add page canonicals, structured data, and sitemap; verify crawler-readable content.
