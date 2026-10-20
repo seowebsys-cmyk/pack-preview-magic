@@ -6,7 +6,6 @@ import { isSitemapRouteIncluded, sitemapPathForLocation, sitemapStaticPaths, sit
 describe("Public search discovery", () => {
   it("includes all five public website pages and excludes the sitemap endpoint", () => {
     const router = getRouter();
-    router.update({ history: undefined });
     expect(sitemapStaticPaths(router)).toEqual(["/", "/about", "/blog", "/contact", "/quote"]);
   });
 
