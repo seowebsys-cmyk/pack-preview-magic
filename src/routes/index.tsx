@@ -1,19 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Suspense, lazy, useEffect, useState } from "react";
-import heroPouch from "@/assets/hero-pouch.png.asset.json";
-import doypackFront from "@/assets/doypack-front.webp.asset.json";
-import gussetFront from "@/assets/gusset-front.webp.asset.json";
-import flatbottomFront from "@/assets/flatbottom-front.webp.asset.json";
+import heroPouch from "@/assets/hero-pouch.png";
+import doypackFront from "@/assets/doypack-front.webp";
+import gussetFront from "@/assets/gusset-front.webp";
+import flatbottomFront from "@/assets/flatbottom-front.webp";
 import { ContactForm } from "@/components/contact-form";
 import { StudioBoundary } from "@/components/studio-boundary";
 import { BLOG_POSTS, formatPostDate } from "@/lib/blog";
-import { assetUrl } from "@/lib/asset-url";
-import showcase1 from "@/assets/roasterpack-gallery-64.jpg.asset.json";
-import showcase2 from "@/assets/roasterpack-gallery-61.jpg.asset.json";
-import showcase3 from "@/assets/roasterpack-gallery-65.jpg.asset.json";
-import showcase4 from "@/assets/roasterpack-gallery-66.jpg.asset.json";
-import showcase5 from "@/assets/roasterpack-gallery-62.jpg.asset.json";
-import showcase6 from "@/assets/roasterpack-gallery-63.jpg.asset.json";
+import showcase1 from "@/assets/roasterpack-gallery-64.jpg";
+import showcase2 from "@/assets/roasterpack-gallery-61.jpg";
+import showcase3 from "@/assets/roasterpack-gallery-65.jpg";
+import showcase4 from "@/assets/roasterpack-gallery-66.jpg";
+import showcase5 from "@/assets/roasterpack-gallery-62.jpg";
+import showcase6 from "@/assets/roasterpack-gallery-63.jpg";
 
 const PouchStudio = lazy(() => import("@/components/pouch-studio"));
 
@@ -34,8 +33,6 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: assetUrl(heroPouch) },
-      { name: "twitter:image", content: assetUrl(heroPouch) },
     ],
   }),
   component: Index,
@@ -59,7 +56,7 @@ const TRUSTED_BY = [
 const PRODUCTS = [
   {
     name: "Doypack",
-    image: assetUrl(doypackFront),
+    image: doypackFront,
     alt: "Custom printed doypack stand-up coffee pouch",
     tag: "The classic stand-up",
     copy: "The go-to stand-up pouch for specialty coffee. Great shelf presence, lightweight, and loved by roasters worldwide.",
@@ -67,7 +64,7 @@ const PRODUCTS = [
   },
   {
     name: "Flat Bottom Pouch",
-    image: assetUrl(flatbottomFront),
+    image: flatbottomFront,
     alt: "Custom printed flat bottom coffee pouch",
     tag: "Premium shelf-ready",
     copy: "A boxy, stable pouch that stands tall and looks premium. Maximum print area for bold brand statements.",
@@ -75,7 +72,7 @@ const PRODUCTS = [
   },
   {
     name: "Gusset Pouch",
-    image: assetUrl(gussetFront),
+    image: gussetFront,
     alt: "Custom printed side gusset coffee pouch",
     tag: "Efficient & flexible",
     copy: "Side-fold gussets give you generous capacity at great value — ideal for larger volumes and wholesale beans.",
@@ -85,32 +82,32 @@ const PRODUCTS = [
 
 const SHOWCASE = [
   {
-    image: assetUrl(showcase1),
+    image: showcase1,
     alt: "Five colorful Chamberlain Coffee pouches with custom printed artwork",
     label: "Chamberlain Coffee — blend collection",
   },
   {
-    image: assetUrl(showcase2),
+    image: showcase2,
     alt: "Front and back of orange MOTO Coffee custom printed pouches",
     label: "MOTO Coffee — front & back",
   },
   {
-    image: assetUrl(showcase3),
+    image: showcase3,
     alt: "White café baskets LOT61 coffee pouches with valve and resealable zipper",
     label: "LOT61 — minimal white print",
   },
   {
-    image: assetUrl(showcase4),
+    image: showcase4,
     alt: "Side view of colorful Chamberlain Coffee pouches showing folded gussets",
     label: "Chamberlain Coffee — side details",
   },
   {
-    image: assetUrl(showcase5),
+    image: showcase5,
     alt: "Coffeekult Rwanda and Colombia white coffee pouches with colorful origin labels",
     label: "Coffeekult — origin series",
   },
   {
-    image: assetUrl(showcase6),
+    image: showcase6,
     alt: "Orange MOTO Coffee pouches viewed from the side to show expanding gussets",
     label: "MOTO Coffee — gusset details",
   },
@@ -173,7 +170,7 @@ function Index() {
           <div className="relative mx-auto w-full max-w-sm">
             <div className="absolute inset-0 -z-10 scale-125 rounded-full bg-secondary" />
             <img
-              src={assetUrl(heroPouch)}
+              src={heroPouch}
               alt="RoasterPack custom coffee pouch"
               className="animate-float-slow mx-auto w-full max-w-xs drop-shadow-2xl lg:max-w-sm"
             />
