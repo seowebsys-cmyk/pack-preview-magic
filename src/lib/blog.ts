@@ -33,7 +33,7 @@ export const BLOG_POSTS: BlogPost[] = [
     cover: blogGussetExpand,
     coverAlt:
       "A kraft side gusset coffee pouch being filled, its folded side panels expanding",
-    blocks: SUPPLIED_ARTICLES["side-gusset-coffee-bags-explained"]?.blocks,
+    blocks: SUPPLIED_ARTICLES["side-gusset-coffee-bags-explained"]?.blocks ?? [],
     body: [],
   },
   {
@@ -46,7 +46,7 @@ export const BLOG_POSTS: BlogPost[] = [
     cover: blogDecisions,
     coverAlt:
       "Flat lay of pouch material swatches, a sample pouch, a degassing valve, and a planning checklist",
-    blocks: SUPPLIED_ARTICLES["coffee-packaging-decisions"]?.blocks,
+    blocks: SUPPLIED_ARTICLES["coffee-packaging-decisions"]?.blocks ?? [],
     body: [],
   },
   {
@@ -59,7 +59,7 @@ export const BLOG_POSTS: BlogPost[] = [
     cover: blogChoosePackaging,
     coverAlt:
       "Three blank coffee pouches — doypack, flat bottom, and side gusset — side by side",
-    blocks: SUPPLIED_ARTICLES["choose-custom-coffee-bag-packaging"]?.blocks,
+    blocks: SUPPLIED_ARTICLES["choose-custom-coffee-bag-packaging"]?.blocks ?? [],
     body: [],
   },
   {
