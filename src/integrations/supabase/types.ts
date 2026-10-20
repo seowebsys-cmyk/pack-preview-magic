@@ -59,6 +59,81 @@ export type Database = {
         }
         Relationships: []
       }
+      quote_requests: {
+        Row: {
+          bag_size: string | null
+          bag_type: string
+          company: string
+          contact_person: string
+          created_at: string
+          deadline: string | null
+          delivery_country: string
+          design_file: string
+          design_link: string | null
+          effects: string[]
+          email: string
+          features: string[]
+          fill_weight_other: string | null
+          fill_weights: string[]
+          finish: string
+          id: string
+          material: string
+          notes: string | null
+          phone: string | null
+          product_form: string
+          quantity_per_design: string
+          sku_count: string
+        }
+        Insert: {
+          bag_size?: string | null
+          bag_type: string
+          company: string
+          contact_person: string
+          created_at?: string
+          deadline?: string | null
+          delivery_country: string
+          design_file: string
+          design_link?: string | null
+          effects?: string[]
+          email: string
+          features?: string[]
+          fill_weight_other?: string | null
+          fill_weights?: string[]
+          finish: string
+          id?: string
+          material: string
+          notes?: string | null
+          phone?: string | null
+          product_form: string
+          quantity_per_design: string
+          sku_count: string
+        }
+        Update: {
+          bag_size?: string | null
+          bag_type?: string
+          company?: string
+          contact_person?: string
+          created_at?: string
+          deadline?: string | null
+          delivery_country?: string
+          design_file?: string
+          design_link?: string | null
+          effects?: string[]
+          email?: string
+          features?: string[]
+          fill_weight_other?: string | null
+          fill_weights?: string[]
+          finish?: string
+          id?: string
+          material?: string
+          notes?: string | null
+          phone?: string | null
+          product_form?: string
+          quantity_per_design?: string
+          sku_count?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
