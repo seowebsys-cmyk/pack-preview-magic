@@ -352,21 +352,21 @@ function Index() {
             A look at recent runs — custom colors, full-print artwork, kraft
             finishes, and every format we produce.
           </p>
-          <div className="mt-12 columns-1 gap-6 sm:columns-2 lg:columns-3">
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {SHOWCASE.map((item) => (
               <figure
                 key={item.label}
-                className="group mb-6 break-inside-avoid overflow-hidden rounded-lg border border-border bg-card"
+                className="group flex flex-col overflow-hidden rounded-lg border border-border bg-card"
               >
-                <div className="overflow-hidden">
+                <a href={item.image} target="_blank" rel="noreferrer" aria-label={`View full photo: ${item.label}`} className="block aspect-[4/3] overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.alt}
                     loading="lazy"
-                    className="block h-auto w-full transition-transform duration-500 group-hover:scale-105"
+                    className="block h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
-                </div>
-                <figcaption className="px-5 py-4 text-sm font-bold">
+                </a>
+                <figcaption className="min-h-20 px-5 py-4 text-sm font-bold">
                   {item.label}
                 </figcaption>
               </figure>
