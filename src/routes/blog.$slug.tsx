@@ -65,23 +65,22 @@ function BlogPostPage() {
             Want to see your brand on our pouches?
           </h2>
           <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
-            Order a free sample or try your logo in our 3D mockup studio — no
-            signup needed.
+            Tell us what you need and we'll send a price quote — or ask for a
+            sample to feel the quality first.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
-              to="/"
-              hash="sample"
+              to="/quote"
               className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
             >
-              Get a Sample
+              Request a Quote
             </Link>
             <Link
               to="/"
-              hash="studio"
+              hash="sample"
               className="inline-flex items-center justify-center rounded-full border border-border bg-background px-6 py-3 text-sm font-bold transition-colors hover:bg-secondary"
             >
-              Try the 3D studio
+              Get a Sample
             </Link>
           </div>
         </div>

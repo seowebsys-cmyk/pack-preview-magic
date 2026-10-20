@@ -1,5 +1,5 @@
 # Tasks
-- [x] Fix image and logo delivery for external hosting.
-- [x] Replace homepage placeholder gallery with six supplied photos.
-- [x] Apply supplied visual identity typography and monochrome palette.
-- [x] Verify images, gallery, and pages in the preview.
+- [x] Bundle all images into the site so they show on Netlify and unpublished hosts.
+- [x] Add "Request a Quote" page and form as the main call to action.
+- [x] Make "Get a Sample" a simple message form (secondary call to action).
+- [ ] Owner email notifications for quote/sample requests — needs a verified email domain.

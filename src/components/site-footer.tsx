@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logoAsset from "@/assets/logo.png.asset.json";
-import { assetUrl } from "@/lib/asset-url";
+import logoAsset from "@/assets/logo.png";
 
 export function SiteFooter() {
   return (
@@ -8,7 +7,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
           <img
-            src={assetUrl(logoAsset)}
+            src={logoAsset}
             alt="RoasterPack"
             className="h-9 w-auto invert"
           />
