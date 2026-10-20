@@ -2,8 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { BLOG_POSTS, formatPostDate } from "@/lib/blog";
 
 export const Route = createFileRoute("/blog/")({
+  staticData: { sitemap: true },
   head: () => ({
+    links: [{ rel: "canonical", href: "https://pack-preview-magic.lovable.app/blog" }],
     meta: [
+      { property: "og:url", content: "https://pack-preview-magic.lovable.app/blog" },
       { title: "Blog — RoasterPack" },
       {
         name: "description",

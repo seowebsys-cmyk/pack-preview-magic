@@ -79,23 +79,21 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  staticData: { sitemap: false },
   head: () => ({
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org", "@type": "Organization",
+        name: "RoasterPack", url: "https://pack-preview-magic.lovable.app",
+        description: "Custom coffee packaging for roasters: doypack, flat-bottom and side-gusset pouches.",
+        email: "info@roasterpack.com", telephone: "+37126497846",
+      }),
+    }],
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "RoasterPack — Custom Coffee Packaging for Roasters" },
-      {
-        name: "description",
-        content:
-          "Premium custom coffee packaging for roasters: doypack, flat bottom and gusset pouches. Sustainable materials, certified quality, free samples.",
-      },
-      { name: "author", content: "RoasterPack" },
-      { property: "og:title", content: "RoasterPack — Custom Coffee Packaging" },
-      {
-        property: "og:description",
-        content:
-          "Sleek, modern, sustainable coffee packaging that keeps beans fresh and makes your brand stand out.",
-      },
+      { property: "og:site_name", content: "RoasterPack" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

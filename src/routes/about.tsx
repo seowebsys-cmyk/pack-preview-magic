@@ -4,8 +4,11 @@ import aboutShop from "@/assets/about-shop.jpg";
 import aboutBreak from "@/assets/about-break.jpg";
 
 export const Route = createFileRoute("/about")({
+  staticData: { sitemap: true },
   head: () => ({
+    links: [{ rel: "canonical", href: "https://pack-preview-magic.lovable.app/about" }],
     meta: [
+      { property: "og:url", content: "https://pack-preview-magic.lovable.app/about" },
       { title: "About RoasterPack — Premium Custom Coffee Packaging" },
       {
         name: "description",

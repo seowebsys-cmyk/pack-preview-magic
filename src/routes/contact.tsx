@@ -2,8 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ContactForm } from "@/components/contact-form";
 
 export const Route = createFileRoute("/contact")({
+  staticData: { sitemap: true },
   head: () => ({
+    links: [{ rel: "canonical", href: "https://pack-preview-magic.lovable.app/contact" }],
     meta: [
+      { property: "og:url", content: "https://pack-preview-magic.lovable.app/contact" },
       { title: "Contact RoasterPack — Custom Coffee Packaging" },
       {
         name: "description",
