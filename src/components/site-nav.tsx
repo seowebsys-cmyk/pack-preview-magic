@@ -32,9 +32,15 @@ export function SiteNav() {
           <Link
             to="/"
             hash="sample"
-            className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-xs font-bold tracking-wide text-primary-foreground uppercase transition-opacity hover:opacity-90"
+            className="hidden items-center justify-center rounded-full border border-foreground/30 px-4 py-2 text-xs font-bold tracking-wide uppercase transition-colors hover:bg-secondary sm:inline-flex"
           >
             Get a Sample
+          </Link>
+          <Link
+            to="/quote"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-xs font-bold tracking-wide text-primary-foreground uppercase transition-opacity hover:opacity-90"
+          >
+            Request a Quote
           </Link>
         </div>
       </div>

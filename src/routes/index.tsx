@@ -153,17 +153,23 @@ function Index() {
               beans fresh while making your brand stand out.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/quote"
+                className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-primary-foreground uppercase transition-opacity hover:opacity-90"
+              >
+                Request a Quote
+              </Link>
               <a
                 href="#sample"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-primary-foreground uppercase transition-opacity hover:opacity-90"
+                className="inline-flex items-center justify-center rounded-full border border-foreground/25 px-7 py-3.5 text-sm font-bold tracking-wide uppercase transition-colors hover:bg-secondary"
               >
                 Get a Sample
               </a>
               <a
                 href="#studio"
-                className="inline-flex items-center justify-center rounded-full border border-foreground/25 px-7 py-3.5 text-sm font-bold tracking-wide uppercase transition-colors hover:bg-secondary"
+                className="inline-flex items-center px-2 py-3.5 text-sm font-bold tracking-wide uppercase underline-offset-4 hover:underline"
               >
-                Try the 3D studio
+                Try the 3D studio →
               </a>
             </div>
           </div>
