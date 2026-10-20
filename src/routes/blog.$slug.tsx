@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { formatPostDate, getPost } from "@/lib/blog";
+import { BlogContent } from "@/components/blog-content";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -9,6 +10,29 @@ export const Route = createFileRoute("/blog/$slug")({
   },
   staticData: { sitemap: true },
   head: ({ loaderData, params }) => ({
+    scripts: loaderData ? [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: loaderData.title,
+        description: loaderData.excerpt,
+        datePublished: loaderData.date,
+        author: { "@type": "Organization", name: "RoasterPack" },
+        publisher: { "@type": "Organization", name: "RoasterPack" },
+        mainEntityOfPage: `https://pack-preview-magic.lovable.app/blog/${params.slug}`,
+      }).replace(/</g, "\\u003c"),
+    }, {
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "RoasterPack", item: "https://pack-preview-magic.lovable.app/" },
+          { "@type": "ListItem", position: 2, name: "Blog", item: "https://pack-preview-magic.lovable.app/blog" },
+          { "@type": "ListItem", position: 3, name: loaderData.title, item: `https://pack-preview-magic.lovable.app/blog/${params.slug}` },
+        ],
+      }).replace(/</g, "\\u003c"),
+    }] : [],
     links: [{ rel: "canonical", href: `https://pack-preview-magic.lovable.app/blog/${params.slug}` }],
     meta: [
       { property: "og:url", content: `https://pack-preview-magic.lovable.app/blog/${params.slug}` },
@@ -57,11 +81,7 @@ function BlogPostPage() {
           height={720}
           className="mt-10 aspect-video w-full rounded-3xl border border-border object-cover"
         />
-        <div className="mt-10 space-y-6 text-base leading-relaxed text-foreground/90">
-          {post.body.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
-        </div>
+        <BlogContent blocks={post.blocks ?? post.body.map((text) => ({ type: "paragraph", text }))} />
 
         <div className="mt-14 rounded-3xl border border-border bg-card p-8 text-center">
           <h2 className="font-display text-2xl">
