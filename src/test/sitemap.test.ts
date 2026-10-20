@@ -4,9 +4,9 @@ import { BLOG_POSTS } from "@/lib/blog";
 import { isSitemapRouteIncluded, sitemapPathForLocation, sitemapStaticPaths, sitemapXML } from "@/lib/sitemap";
 
 describe("Public search discovery", () => {
-  it("includes all five public website pages and excludes the sitemap endpoint", () => {
+  it("includes all six public website pages and excludes the sitemap endpoint", () => {
     const router = getRouter();
-    expect(sitemapStaticPaths(router)).toEqual(["/", "/about", "/blog", "/contact", "/quote"]);
+    expect(sitemapStaticPaths(router)).toEqual(["/", "/about", "/blog", "/contact", "/quote", "/shop"]);
   });
 
   it("includes every blog post, not just the homepage previews", () => {
@@ -16,7 +16,7 @@ describe("Public search discovery", () => {
       const location = router.buildLocation({ to: "/blog/$slug", params: { slug: post.slug }, search: () => ({}), hash: "" });
       expect(sitemapPathForLocation(router, location, "/blog/$slug")).toBe(`/blog/${post.slug}`);
     }
-    expect(BLOG_POSTS).toHaveLength(6);
+    expect(BLOG_POSTS).toHaveLength(3);
   });
 
   it("does not invent content-change timestamps", () => {

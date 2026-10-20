@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getRouterInstance } from "@tanstack/react-start";
 import { BLOG_POSTS } from "@/lib/blog";
+import { SHOP_PRODUCTS } from "@/lib/shop";
 import { isSitemapRouteIncluded, sitemapPathForLocation, sitemapStaticPaths, sitemapXML, type SitemapEntry } from "@/lib/sitemap";
 
 const BASE_URL = "https://pack-preview-magic.lovable.app";
@@ -17,6 +18,14 @@ export const Route = createFileRoute("/sitemap.xml")({
           for (const post of BLOG_POSTS) {
             const location = router.buildLocation({ to: "/blog/$slug", params: { slug: post.slug }, search: () => ({}), hash: "" });
             const path = sitemapPathForLocation(router, location, routeId);
+            if (path) entries.push({ path });
+          }
+        }
+        const productRouteId = "/shop/$slug";
+        if (isSitemapRouteIncluded(router.routesById[productRouteId])) {
+          for (const product of SHOP_PRODUCTS) {
+            const location = router.buildLocation({ to: "/shop/$slug", params: { slug: product.slug }, search: () => ({}), hash: "" });
+            const path = sitemapPathForLocation(router, location, productRouteId);
             if (path) entries.push({ path });
           }
         }

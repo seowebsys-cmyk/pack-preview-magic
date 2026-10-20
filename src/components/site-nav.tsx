@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/logo.png";
+import { ShoppingBag } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function SiteNav() {
   return (
@@ -29,6 +31,9 @@ export function SiteNav() {
           </Link>
         </nav>
         <div className="flex items-center gap-2">
+          <Button asChild variant="ghost" size="icon" className="md:hidden">
+            <Link to="/shop" search={{ type: "all" }} aria-label="Shop" title="Shop"><ShoppingBag /></Link>
+          </Button>
           <Link
             to="/"
             hash="sample"
