@@ -9,8 +9,8 @@ export function SiteNav() {
           <img src={logoAsset} alt="RoasterPack" className="h-7 w-auto" />
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-semibold md:flex">
-          <Link to="/" hash="products" className="text-foreground/80 transition-colors hover:text-foreground">
-            Products
+          <Link to="/shop" search={{ type: "all" }} className="text-foreground/80 transition-colors hover:text-foreground">
+            Shop
           </Link>
           <Link to="/" hash="studio" className="text-foreground/80 transition-colors hover:text-foreground">
             3D Studio
