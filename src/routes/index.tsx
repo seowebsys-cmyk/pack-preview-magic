@@ -449,8 +449,9 @@ function Index() {
             </h2>
             <p className="mt-4 max-w-md text-muted-foreground">
               Experience the quality of RoasterPack's premium coffee packaging
-              before you buy. Tell us what you need, and we'll send you a free
-              sample to test freshness, durability, and branding fit.
+              before you buy. Send us a short message with what you'd like to
+              sample — a member of our sales team will reply personally and
+              sort out the details.
             </p>
             <ul className="mt-8 space-y-3 text-sm font-medium">
               <li className="flex items-center gap-3">
@@ -466,6 +467,12 @@ function Index() {
                 Recyclable and mono-material options available
               </li>
             </ul>
+            <p className="mt-8 text-sm text-muted-foreground">
+              Ready for pricing?{" "}
+              <Link to="/quote" className="font-bold text-foreground underline underline-offset-4">
+                Request a Quote
+              </Link>
+            </p>
           </div>
           <ContactForm kind="sample" />
         </div>

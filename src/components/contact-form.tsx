@@ -22,11 +22,11 @@ export function ContactForm({ kind }: { kind: FormKind }) {
       kind === "sample"
         ? {
             form: "sample",
-            name: String(data.get("name") ?? ""),
-            email: String(data.get("email") ?? ""),
-            phone: String(data.get("phone") ?? ""),
-            annual_volume: String(data.get("annual_volume") ?? ""),
-            delivery_date: String(data.get("delivery_date") ?? "") || null,
+            name: String(data.get("name") ?? "").trim().slice(0, 200),
+            email: String(data.get("email") ?? "").trim().slice(0, 255),
+            company: String(data.get("company") ?? "").trim().slice(0, 200),
+            phone: String(data.get("phone") ?? "").trim().slice(0, 50),
+            message: String(data.get("message") ?? "").trim().slice(0, 2000),
           }
         : {
             form: "contact",
@@ -52,8 +52,9 @@ export function ContactForm({ kind }: { kind: FormKind }) {
       <div className="rounded-2xl border border-border bg-card p-8 text-center">
         <p className="font-display text-2xl">Thank you!</p>
         <p className="mt-2 text-sm text-muted-foreground">
-          Your request is in. Our team will get back to you within one business
-          day.
+          {kind === "sample"
+            ? "Your sample request is in. Our sales team will reply to you by email."
+            : "Your message is in. Our team will get back to you by email."}
         </p>
       </div>
     );
@@ -66,6 +67,7 @@ export function ContactForm({ kind }: { kind: FormKind }) {
           <div className="grid gap-4 sm:grid-cols-2">
             <input
               required
+              maxLength={200}
               name="name"
               placeholder="Name / Surname*"
               className={inputClass}
@@ -73,32 +75,29 @@ export function ContactForm({ kind }: { kind: FormKind }) {
             <input
               required
               type="email"
+              maxLength={255}
               name="email"
               placeholder="Email*"
               className={inputClass}
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            <input name="phone" placeholder="Phone" className={inputClass} />
-            <select
-              required
-              name="annual_volume"
-              defaultValue=""
+            <input
+              maxLength={200}
+              name="company"
+              placeholder="Company / roastery"
               className={inputClass}
-            >
-              <option value="" disabled>
-                Estimated annual order volume*
-              </option>
-              <option value="under-10k">Under 10,000 pouches</option>
-              <option value="10k-50k">10,000 – 50,000 pouches</option>
-              <option value="50k-250k">50,000 – 250,000 pouches</option>
-              <option value="over-250k">Over 250,000 pouches</option>
-            </select>
+            />
+            <input maxLength={50} name="phone" placeholder="Phone" className={inputClass} />
           </div>
-          <label className="grid gap-1 text-xs font-semibold text-muted-foreground">
-            Desired delivery date
-            <input type="date" name="delivery_date" className={inputClass} />
-          </label>
+          <textarea
+            required
+            maxLength={2000}
+            name="message"
+            rows={4}
+            placeholder="Which pouch would you like to sample, and where should we send it?*"
+            className={inputClass}
+          />
         </>
       ) : (
         <>
