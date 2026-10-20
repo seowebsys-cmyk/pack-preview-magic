@@ -25,8 +25,8 @@ export function SiteFooter() {
           </p>
           <ul className="mt-3 space-y-2 text-sm font-semibold">
             <li>
-              <Link to="/" hash="products" className="hover:underline">
-                Products
+              <Link to="/shop" search={{ type: "all" }} className="hover:underline">
+                Shop
               </Link>
             </li>
             <li>
