@@ -2,8 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { QuoteForm } from "@/components/quote-form";
 
 export const Route = createFileRoute("/quote")({
+  staticData: { sitemap: true },
   head: () => ({
+    links: [{ rel: "canonical", href: "https://pack-preview-magic.lovable.app/quote" }],
     meta: [
+      { property: "og:url", content: "https://pack-preview-magic.lovable.app/quote" },
       { title: "Request a Quote — RoasterPack Custom Coffee Pouches" },
       {
         name: "description",

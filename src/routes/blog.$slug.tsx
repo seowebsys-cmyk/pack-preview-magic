@@ -7,8 +7,11 @@ export const Route = createFileRoute("/blog/$slug")({
     if (!post) throw notFound();
     return post;
   },
-  head: ({ loaderData }) => ({
+  staticData: { sitemap: true },
+  head: ({ loaderData, params }) => ({
+    links: [{ rel: "canonical", href: `https://pack-preview-magic.lovable.app/blog/${params.slug}` }],
     meta: [
+      { property: "og:url", content: `https://pack-preview-magic.lovable.app/blog/${params.slug}` },
       { title: `${loaderData?.title ?? "Article"} — RoasterPack Blog` },
       {
         name: "description",

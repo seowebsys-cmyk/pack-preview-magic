@@ -1,9 +1,14 @@
+import { SUPPLIED_ARTICLES } from "./blog-articles";
 import blogValve from "@/assets/blog-valve.jpg";
 import blogTypes from "@/assets/blog-types.jpg";
 import blogSustainable from "@/assets/blog-sustainable.jpg";
 import blogGussetExpand from "@/assets/blog-gusset-expand.jpg";
 import blogDecisions from "@/assets/blog-decisions.jpg";
 import blogChoosePackaging from "@/assets/blog-choose-packaging.jpg";
+
+export type BlogBlock =
+  | { type: "paragraph" | "h2" | "h3"; text: string }
+  | { type: "table"; rows: string[][] };
 
 export interface BlogPost {
   slug: string;
@@ -14,6 +19,7 @@ export interface BlogPost {
   cover: string;
   coverAlt: string;
   body: string[];
+  blocks?: BlogBlock[];
 }
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -21,52 +27,40 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "side-gusset-coffee-bags-explained",
     title: "Side Gusset Coffee Bags: How the Folded Sides Expand",
     date: "2026-10-14",
-    readingTime: "4 min read",
+    readingTime: "7 min read",
     excerpt:
       "Those folded side panels aren't just for looks — they unfold as the pouch fills, turning a flat bag into a high-volume pack. Here's how the format works before you choose it.",
     cover: blogGussetExpand,
     coverAlt:
       "A kraft side gusset coffee pouch being filled, its folded side panels expanding",
-    body: [
-      "A side gusset pouch leaves the production line looking almost flat — two wide panels joined by folded-in sides. Those folds are the gussets, and they're the whole point of the format. As coffee fills the bag, the gussets unfold outward, and the pouch gains depth and volume without gaining width on the shelf.",
-      "This is why side gusset bags are the workhorse of larger retail and wholesale coffee. A format that ships and stores flat can hold 500 g, 1 kg, or more once filled. The front and back panels stay smooth and uninterrupted — a large, clean canvas for your printed design — while the folded sides carry the expansion.",
-      "Filled and sealed, a side gusset pouch has a classic, squared silhouette that roasters have used for generations. It pairs naturally with a tin tie or a resealable zipper at the top, and a degassing valve on the front or back panel handles the CO₂ your fresh roast releases in the first days after sealing.",
-      "When should you choose it? If you're packing larger volumes, supplying cafés and wholesale accounts, or want a traditional coffee-bag look with maximum print area, the side gusset is hard to beat. If shelf-standing stability for small retail bags matters more, a doypack or flat bottom may serve you better — order a sample of each and compare them side by side.",
-    ],
+    blocks: SUPPLIED_ARTICLES["side-gusset-coffee-bags-explained"]?.blocks,
+    body: [],
   },
   {
     slug: "coffee-packaging-decisions",
-    title: "Coffee Packaging Decisions: Freshness, Materials and Ordering",
+    title: "Coffee Packaging Decisions: How to Choose for Freshness, Materials and Ordering",
     date: "2026-10-10",
-    readingTime: "5 min read",
+    readingTime: "7 min read",
     excerpt:
       "Freshness protection, material claims, samples, and order planning — the decisions that shape your packaging long before the first pouch is printed.",
     cover: blogDecisions,
     coverAlt:
       "Flat lay of pouch material swatches, a sample pouch, a degassing valve, and a planning checklist",
-    body: [
-      "Choosing coffee packaging is really a chain of smaller decisions, and the order you make them in matters. Start with freshness: roasted coffee needs protection from oxygen, moisture, and light, plus a way for CO₂ to escape. That means a high-barrier film structure and a one-way degassing valve — non-negotiable for any format you choose.",
-      "Next come materials, and this is where brand values meet physics. Recyclable mono-material pouches now reach barrier levels that keep beans fresh for months, while kraft-look finishes signal sustainability on the shelf. Whatever you choose, make sure the claims you print on the bag match the material actually inside it — your customers increasingly check.",
-      "Then there's ordering itself. Custom-printed pouches have minimum order quantities and lead times, so plan around your roast calendar: a one-time launch run behaves differently from a recurring order for a flagship blend. Ordering slightly ahead of need beats an emergency reorder every time, and keeping your artwork print-ready removes the most common delay.",
-      "Finally, never skip samples. A physical sample tells you what no mockup can — how the material feels, how the zipper closes, how your bag stands next to competitors. It's the cheapest decision in the whole process and the one that prevents the most expensive mistakes.",
-    ],
+    blocks: SUPPLIED_ARTICLES["coffee-packaging-decisions"]?.blocks,
+    body: [],
   },
   {
     slug: "choose-custom-coffee-bag-packaging",
     title: "How to Choose Custom Coffee Bag Packaging for Your Roast",
     date: "2026-10-02",
-    readingTime: "5 min read",
+    readingTime: "10 min read",
     excerpt:
       "Format, barrier, zipper, valve, print — a practical checklist for matching your pouch to your roast, your volumes, and your brand.",
     cover: blogChoosePackaging,
     coverAlt:
       "Three blank coffee pouches — doypack, flat bottom, and side gusset — side by side",
-    body: [
-      "Start with the format. Doypacks are the economical all-rounder for 250 g to 1 kg retail bags. Flat bottom pouches give you five printable panels and rock-solid shelf presence for flagship coffees. Side gusset bags scale to larger volumes with a classic look. Match the format to where the bag will live: retail shelf, café back bar, or wholesale crate.",
-      "Then check the barrier. Light roasts with delicate aromatics and anything shipping far from the roastery need high-barrier films; fast-turnover local sales have more room to compromise. Every format can take a degassing valve — fit one as standard if you seal within days of roasting — and a resealable zipper if the bag will be opened more than once, which for retail coffee is nearly always.",
-      "Now the practical checks. Volume: does the pouch size match your fill weights with headroom to seal? Filling: will your process work with the bag's opening, whether you hand-fill or run a machine? Design: does the printable area fit your artwork without fighting seams and folds? And brand: does the finish — matte, gloss, soft-touch, kraft — look like your coffee tastes?",
-      "The shortcut through all of this is physical comparison. Get samples of the formats you're considering, fill them with your own beans, and live with them for a week. The right pouch usually makes itself obvious once it's sitting on your own shelf next to your own coffee.",
-    ],
+    blocks: SUPPLIED_ARTICLES["choose-custom-coffee-bag-packaging"]?.blocks,
+    body: [],
   },
   {
     slug: "why-degassing-valves-matter",

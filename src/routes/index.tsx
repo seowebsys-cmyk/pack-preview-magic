@@ -17,8 +17,11 @@ import showcase6 from "@/assets/roasterpack-gallery-63.jpg";
 const PouchStudio = lazy(() => import("@/components/pouch-studio"));
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
+    links: [{ rel: "canonical", href: "https://pack-preview-magic.lovable.app/" }],
     meta: [
+      { property: "og:url", content: "https://pack-preview-magic.lovable.app/" },
       { title: "RoasterPack — Custom Coffee Packaging for Roasters" },
       {
         name: "description",
