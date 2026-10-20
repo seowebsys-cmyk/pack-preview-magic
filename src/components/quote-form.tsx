@@ -26,8 +26,8 @@ function Step({
 }: {
   n: number;
   title: string;
-  hint?: string;
-  error?: string;
+  hint?: string | undefined;
+  error?: string | undefined;
   children: ReactNode;
 }) {
   return (
@@ -162,10 +162,10 @@ export function QuoteForm() {
           n={1}
           title="Company & contact"
           error={
-            errors.company ??
-            errors.contact_person ??
-            errors.email ??
-            errors.delivery_country
+            errors["company"] ??
+            errors["contact_person"] ??
+            errors["email"] ??
+            errors["delivery_country"]
           }
         >
           <div className="grid gap-4 sm:grid-cols-2">
@@ -195,7 +195,7 @@ export function QuoteForm() {
         <Step
           n={2}
           title="Product & fill weight"
-          error={errors.product_form ?? errors.fill_weights}
+          error={errors["product_form"] ?? errors["fill_weights"]}
         >
           <Choices name="product_form" options={PRODUCT_FORMS} />
           <p className="mt-4 mb-2 text-xs font-semibold text-muted-foreground">
@@ -214,7 +214,7 @@ export function QuoteForm() {
         <Step
           n={3}
           title="Bag type & design"
-          error={errors.bag_type ?? errors.design_file}
+          error={errors["bag_type"] ?? errors["design_file"]}
         >
           <Choices name="bag_type" options={BAG_TYPES} />
           <p className="mt-4 mb-2 text-xs font-semibold text-muted-foreground">
@@ -246,7 +246,7 @@ export function QuoteForm() {
       </Step>
 
       <div data-field="material">
-        <Step n={5} title="Material / structure" error={errors.material}>
+        <Step n={5} title="Material / structure" error={errors["material"]}>
           <Choices name="material" options={MATERIALS} />
         </Step>
       </div>
@@ -256,7 +256,7 @@ export function QuoteForm() {
       </Step>
 
       <div data-field="sku_count">
-        <Step n={7} title="Number of designs (SKUs)" error={errors.sku_count}>
+        <Step n={7} title="Number of designs (SKUs)" error={errors["sku_count"]}>
           <Choices name="sku_count" options={SKU_COUNTS} />
         </Step>
       </div>
@@ -266,7 +266,7 @@ export function QuoteForm() {
           n={8}
           title="Quantity per design"
           hint="Pieces per design, e.g. 500 / 1,000 / 3,000 / 10,000"
-          error={errors.quantity_per_design}
+          error={errors["quantity_per_design"]}
         >
           <input
             name="quantity_per_design"
@@ -283,7 +283,7 @@ export function QuoteForm() {
       </div>
 
       <div data-field="finish">
-        <Step n={9} title="Finish" error={errors.finish}>
+        <Step n={9} title="Finish" error={errors["finish"]}>
           <Choices name="finish" options={FINISHES} />
           <p className="mt-4 mb-2 text-xs font-semibold text-muted-foreground">
             Effects (optional)
