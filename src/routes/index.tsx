@@ -501,3 +501,18 @@ function Index() {
     </>
   );
 }
+
+function SampleForm() {
+  const search = Route.useSearch();
+  return (
+    <ContactForm
+      kind="sample"
+      prefill={{
+        product: search.sample_product,
+        size: search.sample_size,
+        material: search.sample_material,
+        volume: search.sample_volume,
+      }}
+    />
+  );
+}
