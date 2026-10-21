@@ -20,7 +20,7 @@ export interface SamplePrefill {
   volume?: string;
 }
 
-function matchSampleProduct(format?: string) {
+export function matchSampleProduct(format?: string) {
   if (!format) return undefined;
   const f = format.toLowerCase();
   if (f.includes("doypack")) return "Custom Roaster's Doypacks";
