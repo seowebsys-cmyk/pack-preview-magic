@@ -5,6 +5,7 @@ import doypackFront from "@/assets/doypack-front.webp";
 import gussetFront from "@/assets/gusset-front.webp";
 import flatbottomFront from "@/assets/flatbottom-front.webp";
 import { ContactForm } from "@/components/contact-form";
+import { BookCall } from "@/components/book-call";
 import { StudioBoundary } from "@/components/studio-boundary";
 import { BLOG_POSTS, formatPostDate } from "@/lib/blog";
 import showcase1 from "@/assets/roasterpack-gallery-64.jpg";
@@ -156,18 +157,19 @@ function Index() {
               beans fresh while making your brand stand out.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/quote"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-primary-foreground uppercase transition-opacity hover:opacity-90"
-              >
-                Request a Quote
-              </Link>
               <a
                 href="#sample"
-                className="inline-flex items-center justify-center rounded-full border border-foreground/25 px-7 py-3.5 text-sm font-bold tracking-wide uppercase transition-colors hover:bg-secondary"
+                className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3.5 text-sm font-bold tracking-wide text-primary-foreground uppercase transition-opacity hover:opacity-90"
               >
                 Get a Sample
               </a>
+              <Link
+                to="/shop"
+                search={{ type: "all" }}
+                className="inline-flex items-center justify-center rounded-full border border-foreground/25 px-7 py-3.5 text-sm font-bold tracking-wide uppercase transition-colors hover:bg-secondary"
+              >
+                Order now
+              </Link>
               <a
                 href="#studio"
                 className="inline-flex items-center px-2 py-3.5 text-sm font-bold tracking-wide uppercase underline-offset-4 hover:underline"
@@ -471,15 +473,18 @@ function Index() {
               </li>
             </ul>
             <p className="mt-8 text-sm text-muted-foreground">
-              Ready for pricing?{" "}
-              <Link to="/quote" className="font-bold text-foreground underline underline-offset-4">
-                Request a Quote
+              Ready to order?{" "}
+              <Link to="/shop" search={{ type: "all" }} className="font-bold text-foreground underline underline-offset-4">
+                Browse the shop
               </Link>
             </p>
           </div>
           <ContactForm kind="sample" />
         </div>
       </section>
+
+      {/* Speak with a representative */}
+      <BookCall />
     </>
   );
 }

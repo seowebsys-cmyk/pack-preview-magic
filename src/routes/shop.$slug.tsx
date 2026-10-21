@@ -47,8 +47,8 @@ function ProductPage() {
           </dl>
           {product.orderType === "monthly" && <p className="mt-6 text-sm leading-relaxed text-muted-foreground">For recurring pouch supply, tell us your monthly requirements. Our team will confirm the delivery and invoicing arrangements with you.</p>}
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg"><Link to="/quote">Request a Quote<ArrowRight /></Link></Button>
-            <Button asChild size="lg" variant="outline"><Link to="/" hash="sample">Get a Sample</Link></Button>
+            <Button asChild size="lg"><Link to="/" hash="sample">Get a Sample<ArrowRight /></Link></Button>
+            <Button asChild size="lg" variant="outline"><Link to="/quote">Request a Quote</Link></Button>
           </div>
         </div>
       </div>
