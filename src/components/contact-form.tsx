@@ -13,10 +13,45 @@ const SAMPLE_PRODUCTS = [
   "Custom Roaster's Gusset Pouch",
 ];
 
-export function ContactForm({ kind }: { kind: FormKind }) {
+export interface SamplePrefill {
+  product?: string | undefined;
+  size?: string | undefined;
+  material?: string | undefined;
+  volume?: string | undefined;
+}
+
+export function matchSampleProduct(format?: string) {
+  if (!format) return undefined;
+  const f = format.toLowerCase();
+  if (f.includes("doypack")) return "Custom Roaster's Doypacks";
+  if (f.includes("flat")) return "Custom Roaster's Flat bottom pouch";
+  if (f.includes("gusset")) return "Custom Roaster's Gusset Pouch";
+  return undefined;
+}
+
+export function ContactForm({
+  kind,
+  prefill,
+}: {
+  kind: FormKind;
+  prefill?: SamplePrefill;
+}) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
+
+  const prefillProduct = matchSampleProduct(prefill?.product);
+  const prefillDetails = [
+    prefill?.product,
+    prefill?.size && `Size: ${prefill.size}`,
+    prefill?.material && `Material: ${prefill.material}`,
+    prefill?.volume && `Volume: ${prefill.volume}`,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+  const prefillMessage = prefillDetails
+    ? `I'd like a sample of: ${prefillDetails}.\n\n`
+    : undefined;
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -119,6 +154,7 @@ export function ContactForm({ kind }: { kind: FormKind }) {
                 maxLength={100}
                 name="annual_volume"
                 placeholder="e.g. 20,000 pouches"
+                defaultValue={prefill?.volume}
                 className={inputClass}
               />
             </label>
@@ -157,6 +193,7 @@ export function ContactForm({ kind }: { kind: FormKind }) {
                     type="checkbox"
                     name="products"
                     value={product}
+                    defaultChecked={product === prefillProduct}
                     className="size-4 accent-primary"
                   />
                   {product}
@@ -181,6 +218,7 @@ export function ContactForm({ kind }: { kind: FormKind }) {
               maxLength={2000}
               name="message"
               rows={4}
+              defaultValue={prefillMessage}
               className={inputClass}
             />
           </label>

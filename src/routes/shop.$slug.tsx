@@ -1,7 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { getShopProduct } from "@/lib/shop";
+import { getShopProduct, SHOP_MATERIALS, SHOP_SIZES, SHOP_VOLUMES } from "@/lib/shop";
 
 export const Route = createFileRoute("/shop/$slug")({
   staticData: { sitemap: true },
@@ -26,8 +27,22 @@ export const Route = createFileRoute("/shop/$slug")({
   component: ProductPage,
 });
 
+const selectClass =
+  "w-full appearance-none rounded-lg border border-input bg-card px-4 py-3 text-sm outline-none transition-colors focus:border-ring";
+
 function ProductPage() {
   const product = Route.useLoaderData();
+  const [size, setSize] = useState("");
+  const [material, setMaterial] = useState("");
+  const [volume, setVolume] = useState("");
+
+  const sampleSearch = {
+    sample_product: product.format,
+    ...(size ? { sample_size: size } : {}),
+    ...(material ? { sample_material: material } : {}),
+    ...(volume ? { sample_volume: volume } : {}),
+  };
+
   return <section className="py-12 sm:py-16">
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
       <Button asChild variant="link" className="px-0"><Link to="/shop" search={{ type: "all" }}><ArrowLeft />All Products</Link></Button>
@@ -46,10 +61,37 @@ function ProductPage() {
             <div className="grid grid-cols-[100px_1fr] gap-4 py-4"><dt className="font-bold">Pricing</dt><dd>Quoted for your size, material and order volume</dd></div>
           </dl>
           {product.orderType === "monthly" && <p className="mt-6 text-sm leading-relaxed text-muted-foreground">For recurring pouch supply, tell us your monthly requirements. Our team will confirm the delivery and invoicing arrangements with you.</p>}
+
+          <div className="mt-8 grid gap-4">
+            <p className="text-xs font-bold tracking-[0.2em] text-muted-foreground uppercase">Configure your pouch</p>
+            <label className="grid gap-1.5 text-xs font-semibold">
+              Size
+              <select value={size} onChange={(e) => setSize(e.target.value)} className={selectClass}>
+                <option value="">Select</option>
+                {SHOP_SIZES.map((s) => <option key={s} value={`${s} g`}>{s} g</option>)}
+              </select>
+            </label>
+            <label className="grid gap-1.5 text-xs font-semibold">
+              Material
+              <select value={material} onChange={(e) => setMaterial(e.target.value)} className={selectClass}>
+                <option value="">Select</option>
+                {SHOP_MATERIALS.map((m) => <option key={m.value} value={m.label}>{m.label}</option>)}
+              </select>
+            </label>
+            <label className="grid gap-1.5 text-xs font-semibold">
+              Volume
+              <select value={volume} onChange={(e) => setVolume(e.target.value)} className={selectClass}>
+                <option value="">Select</option>
+                {SHOP_VOLUMES.map((v) => <option key={v} value={`${v.toLocaleString("en-US")} pcs`}>{v.toLocaleString("en-US")} pcs</option>)}
+              </select>
+            </label>
+          </div>
+
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg"><Link to="/" hash="sample">Get a Sample<ArrowRight /></Link></Button>
+            <Button asChild size="lg"><Link to="/" search={sampleSearch} hash="sample">Get a Sample<ArrowRight /></Link></Button>
             <Button asChild size="lg" variant="outline"><Link to="/quote">Request a Quote</Link></Button>
           </div>
+          <p className="mt-3 text-xs text-muted-foreground">Your selections are carried into the sample request form.</p>
         </div>
       </div>
     </div>
