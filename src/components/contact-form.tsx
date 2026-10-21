@@ -154,6 +154,7 @@ export function ContactForm({
                 maxLength={100}
                 name="annual_volume"
                 placeholder="e.g. 20,000 pouches"
+                defaultValue={prefill?.volume}
                 className={inputClass}
               />
             </label>
@@ -192,6 +193,7 @@ export function ContactForm({
                     type="checkbox"
                     name="products"
                     value={product}
+                    defaultChecked={product === prefillProduct}
                     className="size-4 accent-primary"
                   />
                   {product}
@@ -216,6 +218,7 @@ export function ContactForm({
               maxLength={2000}
               name="message"
               rows={4}
+              defaultValue={prefillMessage}
               className={inputClass}
             />
           </label>
