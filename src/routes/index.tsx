@@ -17,8 +17,21 @@ import showcase6 from "@/assets/roasterpack-gallery-63.jpg";
 
 const PouchStudio = lazy(() => import("@/components/pouch-studio"));
 
+interface SampleSearch {
+  sample_product?: string;
+  sample_size?: string;
+  sample_material?: string;
+  sample_volume?: string;
+}
+
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
+  validateSearch: (search: Record<string, unknown>): SampleSearch => ({
+    sample_product: typeof search.sample_product === "string" ? search.sample_product : undefined,
+    sample_size: typeof search.sample_size === "string" ? search.sample_size : undefined,
+    sample_material: typeof search.sample_material === "string" ? search.sample_material : undefined,
+    sample_volume: typeof search.sample_volume === "string" ? search.sample_volume : undefined,
+  }),
   head: () => ({
     links: [{ rel: "canonical", href: "https://pack-preview-magic.lovable.app/" }],
     meta: [
@@ -479,7 +492,7 @@ function Index() {
               </Link>
             </p>
           </div>
-          <ContactForm kind="sample" />
+          <SampleForm />
         </div>
       </section>
 
