@@ -18,10 +18,10 @@ import showcase6 from "@/assets/roasterpack-gallery-63.jpg";
 const PouchStudio = lazy(() => import("@/components/pouch-studio"));
 
 interface SampleSearch {
-  sample_product?: string;
-  sample_size?: string;
-  sample_material?: string;
-  sample_volume?: string;
+  sample_product?: string | undefined;
+  sample_size?: string | undefined;
+  sample_material?: string | undefined;
+  sample_volume?: string | undefined;
 }
 
 export const Route = createFileRoute("/")({
