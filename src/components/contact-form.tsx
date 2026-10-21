@@ -14,10 +14,10 @@ const SAMPLE_PRODUCTS = [
 ];
 
 export interface SamplePrefill {
-  product?: string;
-  size?: string;
-  material?: string;
-  volume?: string;
+  product?: string | undefined;
+  size?: string | undefined;
+  material?: string | undefined;
+  volume?: string | undefined;
 }
 
 export function matchSampleProduct(format?: string) {
