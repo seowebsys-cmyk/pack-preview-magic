@@ -59,7 +59,7 @@ function toggle(list: string[], value: string) {
 
 function ShopPage() {
   const search = Route.useSearch();
-  const navigate = useNavigate({ from: "/shop" });
+  const navigate = useNavigate({ from: "/shop/" });
   const [draft, setDraft] = useState<ShopSearch>(search);
   const [filtersOpen, setFiltersOpen] = useState(false);
 
