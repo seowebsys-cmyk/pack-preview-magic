@@ -60,15 +60,20 @@ function toggle(list: string[], value: string) {
 function ShopPage() {
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/shop/" });
-  const [draft, setDraft] = useState<ShopSearch>(search);
+  const [draft, setDraft] = useState<Required<ShopSearch>>({
+    type: search.type,
+    materials: search.materials ?? [],
+    sizes: search.sizes ?? [],
+    volumes: search.volumes ?? [],
+  });
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const products = filterShopProducts(search.type, search);
   const activeCount =
     (search.type === "all" ? 0 : 1) +
-    search.materials.length +
-    search.sizes.length +
-    search.volumes.length;
+    (search.materials?.length ?? 0) +
+    (search.sizes?.length ?? 0) +
+    (search.volumes?.length ?? 0);
 
   const monthlyChecked = draft.type === "monthly" || draft.type === "all";
   const oneTimeChecked = draft.type === "one-time" || draft.type === "all";
