@@ -88,22 +88,23 @@ function BlogPostPage() {
             Want to see your brand on our pouches?
           </h2>
           <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
-            Tell us what you need and we'll send a price quote — or ask for a
-            sample to feel the quality first.
+            Ask for a sample to feel the quality first — or head to the shop
+            when you're ready to order.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
-              to="/quote"
-              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              Request a Quote
-            </Link>
-            <Link
               to="/"
               hash="sample"
-              className="inline-flex items-center justify-center rounded-full border border-border bg-background px-6 py-3 text-sm font-bold transition-colors hover:bg-secondary"
+              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
             >
               Get a Sample
+            </Link>
+            <Link
+              to="/shop"
+              search={{ type: "all" }}
+              className="inline-flex items-center justify-center rounded-full border border-border bg-background px-6 py-3 text-sm font-bold transition-colors hover:bg-secondary"
+            >
+              Order now
             </Link>
           </div>
         </div>

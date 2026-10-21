@@ -7,6 +7,12 @@ type FormKind = "sample" | "contact";
 const inputClass =
   "w-full rounded-xl border border-input bg-card px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-ring";
 
+const SAMPLE_PRODUCTS = [
+  "Custom Roaster's Doypacks",
+  "Custom Roaster's Flat bottom pouch",
+  "Custom Roaster's Gusset Pouch",
+];
+
 export function ContactForm({ kind }: { kind: FormKind }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
@@ -24,8 +30,18 @@ export function ContactForm({ kind }: { kind: FormKind }) {
             form: "sample",
             name: String(data.get("name") ?? "").trim().slice(0, 200),
             email: String(data.get("email") ?? "").trim().slice(0, 255),
-            company: String(data.get("company") ?? "").trim().slice(0, 200),
             phone: String(data.get("phone") ?? "").trim().slice(0, 50),
+            annual_volume: String(data.get("annual_volume") ?? "")
+              .trim()
+              .slice(0, 100),
+            delivery_date: String(data.get("delivery_date") ?? "").trim(),
+            delivery_address: String(data.get("delivery_address") ?? "")
+              .trim()
+              .slice(0, 300),
+            products: data.getAll("products").map(String).slice(0, 10),
+            design_link: String(data.get("design_link") ?? "")
+              .trim()
+              .slice(0, 500),
             message: String(data.get("message") ?? "").trim().slice(0, 2000),
           }
         : {
@@ -65,39 +81,109 @@ export function ContactForm({ kind }: { kind: FormKind }) {
       {kind === "sample" ? (
         <>
           <div className="grid gap-4 sm:grid-cols-2">
-            <input
-              required
-              maxLength={200}
-              name="name"
-              placeholder="Name / Surname*"
-              className={inputClass}
-            />
-            <input
-              required
-              type="email"
-              maxLength={255}
-              name="email"
-              placeholder="Email*"
-              className={inputClass}
-            />
+            <label className="grid gap-1.5 text-xs font-semibold">
+              Name / Surname*
+              <input
+                required
+                maxLength={200}
+                name="name"
+                className={inputClass}
+              />
+            </label>
+            <label className="grid gap-1.5 text-xs font-semibold">
+              Email*
+              <input
+                required
+                type="email"
+                maxLength={255}
+                name="email"
+                className={inputClass}
+              />
+            </label>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
+            <label className="grid gap-1.5 text-xs font-semibold">
+              Phone*
+              <input
+                required
+                type="tel"
+                maxLength={50}
+                name="phone"
+                className={inputClass}
+              />
+            </label>
+            <label className="grid gap-1.5 text-xs font-semibold">
+              Estimated annual order volume*
+              <input
+                required
+                maxLength={100}
+                name="annual_volume"
+                placeholder="e.g. 20,000 pouches"
+                className={inputClass}
+              />
+            </label>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <label className="grid gap-1.5 text-xs font-semibold">
+              Date of delivery*
+              <input
+                required
+                type="date"
+                name="delivery_date"
+                className={inputClass}
+              />
+            </label>
+            <label className="grid gap-1.5 text-xs font-semibold">
+              Delivery address*
+              <input
+                required
+                maxLength={300}
+                name="delivery_address"
+                className={inputClass}
+              />
+            </label>
+          </div>
+          <fieldset>
+            <legend className="text-xs font-semibold">
+              Select your custom product
+            </legend>
+            <div className="mt-2 grid gap-2">
+              {SAMPLE_PRODUCTS.map((product) => (
+                <label
+                  key={product}
+                  className="flex items-center gap-2.5 text-sm font-medium"
+                >
+                  <input
+                    type="checkbox"
+                    name="products"
+                    value={product}
+                    className="size-4 accent-primary"
+                  />
+                  {product}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <label className="grid gap-1.5 text-xs font-semibold">
+            Link to your design (optional)
             <input
-              maxLength={200}
-              name="company"
-              placeholder="Company / roastery"
+              type="url"
+              maxLength={500}
+              name="design_link"
+              placeholder="https://… (Drive, Dropbox, WeTransfer)"
               className={inputClass}
             />
-            <input maxLength={50} name="phone" placeholder="Phone" className={inputClass} />
-          </div>
-          <textarea
-            required
-            maxLength={2000}
-            name="message"
-            rows={4}
-            placeholder="Which pouch would you like to sample, and where should we send it?*"
-            className={inputClass}
-          />
+          </label>
+          <label className="grid gap-1.5 text-xs font-semibold">
+            Message*
+            <textarea
+              required
+              maxLength={2000}
+              name="message"
+              rows={4}
+              className={inputClass}
+            />
+          </label>
         </>
       ) : (
         <>

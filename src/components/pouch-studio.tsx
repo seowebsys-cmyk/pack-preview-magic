@@ -226,10 +226,10 @@ export default function PouchStudio() {
             Download mockup
           </button>
           <a
-            href="/quote"
+            href="/#sample"
             className="inline-flex items-center justify-center rounded-full border border-border bg-card px-6 py-3 text-sm font-bold transition-colors hover:bg-secondary"
           >
-            Request a Quote
+            Get a Sample
           </a>
         </div>
       </div>

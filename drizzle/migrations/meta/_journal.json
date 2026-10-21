@@ -15,6 +15,13 @@
       "when": 1792486114378,
       "tag": "0001_create_quote_requests",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792567227587,
+      "tag": "0002_extend_contact_requests_sample_fields",
+      "breakpoints": true
     }
   ]
 }

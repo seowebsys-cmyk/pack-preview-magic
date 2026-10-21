@@ -35,17 +35,18 @@ export function SiteNav() {
             <Link to="/shop" search={{ type: "all" }} aria-label="Shop" title="Shop"><ShoppingBag /></Link>
           </Button>
           <Link
-            to="/"
-            hash="sample"
+            to="/shop"
+            search={{ type: "all" }}
             className="hidden items-center justify-center rounded-full border border-foreground/30 px-4 py-2 text-xs font-bold tracking-wide uppercase transition-colors hover:bg-secondary sm:inline-flex"
           >
-            Get a Sample
+            Order now
           </Link>
           <Link
-            to="/quote"
+            to="/"
+            hash="sample"
             className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-xs font-bold tracking-wide text-primary-foreground uppercase transition-opacity hover:opacity-90"
           >
-            Request a Quote
+            Get a Sample
           </Link>
         </div>
       </div>

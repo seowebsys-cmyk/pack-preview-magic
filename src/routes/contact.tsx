@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ContactForm } from "@/components/contact-form";
+import { BookCall } from "@/components/book-call";
 
 export const Route = createFileRoute("/contact")({
   staticData: { sitemap: true },
@@ -28,6 +29,7 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   return (
+    <>
     <section className="py-20">
       <div className="mx-auto grid max-w-6xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-2">
         <div>
@@ -81,5 +83,7 @@ function Contact() {
         <ContactForm kind="contact" />
       </div>
     </section>
+    <BookCall />
+    </>
   );
 }

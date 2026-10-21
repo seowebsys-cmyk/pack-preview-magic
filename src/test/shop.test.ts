@@ -18,6 +18,29 @@ describe("Shop catalog", () => {
   });
 });
 
+describe("Shop filters", () => {
+  it("offers every product in all four materials, three sizes and seven volume tiers", () => {
+    for (const product of SHOP_PRODUCTS) {
+      expect(product.materials).toEqual(["kraft", "metallized", "sustainable", "transparent"]);
+      expect(product.sizes).toEqual([250, 500, 1000]);
+      expect(product.volumes).toEqual([500, 1000, 1500, 3000, 6000, 10000, 20000]);
+    }
+  });
+  it("keeps all six products when filtering by a single material, size or volume", () => {
+    expect(filterShopProducts("all", { materials: ["kraft"] })).toHaveLength(6);
+    expect(filterShopProducts("all", { sizes: [500] })).toHaveLength(6);
+    expect(filterShopProducts("all", { volumes: [3000] })).toHaveLength(6);
+  });
+  it("combines product type with attribute filters", () => {
+    const result = filterShopProducts("monthly", { materials: ["sustainable"], sizes: [1000] });
+    expect(result).toHaveLength(3);
+    expect(result.every((product) => product.orderType === "monthly")).toBe(true);
+  });
+  it("returns nothing for an unknown material", () => {
+    expect(filterShopProducts("all", { materials: ["unobtainium"] })).toHaveLength(0);
+  });
+});
+
 describe("Removed placeholder articles", () => {
   it.each(["why-degassing-valves-matter", "doypack-vs-flat-bottom", "sustainable-packaging-mono-materials"])("does not expose %s", (slug) => {
     expect(getPost(slug)).toBeUndefined();

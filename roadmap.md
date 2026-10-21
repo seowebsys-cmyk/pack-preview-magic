@@ -7,6 +7,8 @@
 - [x] Add page canonicals, structured data, and sitemap; verify crawler-readable content.
 - [ ] Live search indexing — site must be published before search engines can discover these updates; indexing is not guaranteed.
 - [x] Bundle all images into the site so they show on Netlify and unpublished hosts.
-- [x] Add "Request a Quote" page and form as the main call to action.
-- [x] Make "Get a Sample" a simple message form (secondary call to action).
+- [x] Make "Get a Sample" the main CTA (full sample form matching the old site) and "Order now" the secondary CTA leading to the shop.
+- [x] Add shop filter panel: product type, material, size, volume price.
+- [x] Add "Speak with a representative" Calendly booking section (homepage + contact page).
+- [ ] Replace the placeholder Calendly link in src/components/book-call.tsx with the user's real Calendly event URL — waiting on the user to send it.
 - [ ] Owner email notifications for quote/sample requests — needs a verified email domain.
