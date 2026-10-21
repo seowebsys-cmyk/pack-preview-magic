@@ -12,9 +12,9 @@ import {
 
 interface ShopSearch {
   type: OrderType;
-  materials: string[];
-  sizes: number[];
-  volumes: number[];
+  materials?: string[];
+  sizes?: number[];
+  volumes?: number[];
 }
 
 const toList = (value: unknown): string[] =>
