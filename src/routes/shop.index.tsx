@@ -90,7 +90,7 @@ function ShopPage() {
   }
 
   function clear() {
-    const reset: ShopSearch = { type: "all", materials: [], sizes: [], volumes: [] };
+    const reset: Required<ShopSearch> = { type: "all", materials: [], sizes: [], volumes: [] };
     setDraft(reset);
     navigate({ search: () => ({ ...reset }), replace: true });
   }
