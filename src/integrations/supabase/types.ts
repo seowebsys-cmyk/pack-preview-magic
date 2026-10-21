@@ -19,7 +19,9 @@ export type Database = {
           annual_volume: string | null
           company: string | null
           created_at: string
+          delivery_address: string | null
           delivery_date: string | null
+          design_link: string | null
           email: string
           first_name: string | null
           form: string
@@ -28,12 +30,15 @@ export type Database = {
           message: string | null
           name: string | null
           phone: string | null
+          products: string[] | null
         }
         Insert: {
           annual_volume?: string | null
           company?: string | null
           created_at?: string
+          delivery_address?: string | null
           delivery_date?: string | null
+          design_link?: string | null
           email: string
           first_name?: string | null
           form: string
@@ -42,12 +47,15 @@ export type Database = {
           message?: string | null
           name?: string | null
           phone?: string | null
+          products?: string[] | null
         }
         Update: {
           annual_volume?: string | null
           company?: string | null
           created_at?: string
+          delivery_address?: string | null
           delivery_date?: string | null
+          design_link?: string | null
           email?: string
           first_name?: string | null
           form?: string
@@ -56,6 +64,7 @@ export type Database = {
           message?: string | null
           name?: string | null
           phone?: string | null
+          products?: string[] | null
         }
         Relationships: []
       }
