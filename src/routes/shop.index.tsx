@@ -80,14 +80,14 @@ function ShopPage() {
   }
 
   function apply() {
-    navigate({ search: { ...draft }, replace: true });
+    navigate({ search: () => ({ ...draft }), replace: true });
     setFiltersOpen(false);
   }
 
   function clear() {
     const reset: ShopSearch = { type: "all", materials: [], sizes: [], volumes: [] };
     setDraft(reset);
-    navigate({ search: { ...reset }, replace: true });
+    navigate({ search: () => ({ ...reset }), replace: true });
   }
 
   const checkboxClass = "size-4 shrink-0 accent-primary";
